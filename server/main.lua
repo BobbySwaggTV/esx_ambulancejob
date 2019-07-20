@@ -99,7 +99,7 @@ if Config.EarlyRespawnFine then
 		local xPlayer = ESX.GetPlayerFromId(source)
 		local fineAmount = Config.EarlyRespawnFineAmount
 
-		TriggerClientEvent('esx:showNotification', xPlayer.source, _U('respawn_bleedout_fine_msg', ESX.Math.GroupDigits(fineAmount)))
+		TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'inform', text = _U('respawn_bleedout_fine_msg', ESX.Math.GroupDigits(fineAmount))})
 		xPlayer.removeAccountMoney('bank', fineAmount)
 	end)
 end
@@ -205,9 +205,9 @@ AddEventHandler('esx_ambulancejob:removeItem', function(item)
 	xPlayer.removeInventoryItem(item, 1)
 
 	if item == 'bandage' then
-		TriggerClientEvent('esx:showNotification', _source, _U('used_bandage'))
+		TriggerClientEvent('mythic_notify:client:SendAlert', _source, {type = 'success', text = _U('used_bandage')})
 	elseif item == 'medikit' then
-		TriggerClientEvent('esx:showNotification', _source, _U('used_medikit'))
+		TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'success', text = _U('used_medikit')})
 	end
 end)
 
@@ -233,7 +233,7 @@ AddEventHandler('esx_ambulancejob:giveItem', function(itemName)
 	if xItem.count < xItem.limit then
 		xPlayer.addInventoryItem(itemName, count)
 	else
-		TriggerClientEvent('esx:showNotification', source, _U('max_item'))
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U('max_item')})
 	end
 end)
 

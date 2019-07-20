@@ -53,7 +53,7 @@ AddEventHandler('playerSpawned', function()
 					Citizen.Wait(1000)
 				end
 
-				ESX.ShowNotification(_U('combatlog_message'))
+				exports['mythic_notify']:DoHudText('inform', _U('combatlog_message'))
 				RemoveItemsAfterRPDeath()
 			end
 		end)
@@ -121,7 +121,7 @@ AddEventHandler('esx_ambulancejob:useItem', function(itemName)
 			end
 	
 			TriggerEvent('esx_ambulancejob:heal', 'big', true)
-			ESX.ShowNotification(_U('used_medikit'))
+			exports['mythic_notify']:DoHudText('success', _U('used_medikit'))
 		end)
 
 	elseif itemName == 'bandage' then
@@ -138,7 +138,7 @@ AddEventHandler('esx_ambulancejob:useItem', function(itemName)
 			end
 
 			TriggerEvent('esx_ambulancejob:heal', 'small', true)
-			ESX.ShowNotification(_U('used_bandage'))
+			exports['mythic_notify']:DoHudText('success', _U('used_bandage'))
 		end)
 	end
 end)
@@ -182,7 +182,7 @@ function SendDistressSignal()
 	local playerPed = PlayerPedId()
 	local coords = GetEntityCoords(playerPed)
 
-	ESX.ShowNotification(_U('distress_sent'))
+	exports['mythic_notify']:DoHudText('inform', _U('distress_sent'))
 	TriggerServerEvent('esx_phone:send', 'ambulance', _U('distress_message'), false, {
 		x = coords.x,
 		y = coords.y,
