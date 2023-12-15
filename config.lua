@@ -1,3 +1,7 @@
+--------------------------------
+--- Created by BobbySwaggTV ----
+-------------------------------- 
+
 Config                            = {}
 
 Config.DrawDistance               = 100.0
