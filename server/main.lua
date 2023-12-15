@@ -1,3 +1,7 @@
+--------------------------------
+--- Created by BobbySwaggTV ----
+-------------------------------- 
+
 ESX = nil
 local playersHealing = {}
 
