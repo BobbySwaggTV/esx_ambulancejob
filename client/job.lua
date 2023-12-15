@@ -1,3 +1,7 @@
+--------------------------------
+--- Created by BobbySwaggTV ----
+-------------------------------- 
+
 local CurrentAction, CurrentActionMsg, CurrentActionData = nil, '', {}
 local HasAlreadyEnteredMarker, LastHospital, LastPart, LastPartNum
 local IsBusy = false
